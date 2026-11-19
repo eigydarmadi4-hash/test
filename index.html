@@ -67,12 +67,32 @@
     <section class="section">
       <div class="kicker">Wedding Gift</div><h2>Tanda Kasih</h2>
       <p class="intro">Doa restu Anda merupakan hadiah terindah bagi kami. Namun, apabila ingin berbagi tanda kasih, dapat melalui informasi berikut.</p>
+
+      <div class="gift" style="margin-bottom:14px">
+        <div class="kicker">Bank Transfer</div>
+        <div style="display:inline-block;margin:10px 0;padding:5px 12px;border:1px solid var(--line);background:#f7f2ec;font:bold 13px Arial,sans-serif;letter-spacing:1px;color:#00529b">BCA</div>
+        <div class="account" id="rek-bca">5940387657</div>
+        <p>a.n. EIGY DARMADI</p>
+        <button class="btn" onclick="copyText('rek-bca')">Salin No. Rekening BCA</button>
+      </div>
+
+      <div class="gift" style="margin-bottom:14px">
+        <div class="kicker">E-Wallet</div>
+        <div style="display:inline-block;margin:10px 0;padding:5px 12px;border:1px solid var(--line);background:#e8f7fb;font:bold 13px Arial,sans-serif;letter-spacing:1px;color:#00880d">GoPay</div>
+        <div class="account" id="no-gopay">082113750886</div>
+        <p>a.n. EIGY DARMADI</p>
+        <button class="btn" onclick="copyText('no-gopay')">Salin Nomor GoPay</button>
+      </div>
+
       <div class="gift">
-        <div class="kicker">Bank / E-Wallet</div>
-        <h3 style="font-weight:400;margin:10px 0">[BCA]</h3>
-        <div class="account" id="rekening">[5940387657]</div>
-        <p>a.n. [EIGY DARMADI]</p>
-        <button class="btn" onclick="copyAccount()">Salin Nomor Rekening</button>
+        <div class="kicker">E-Wallet</div>
+        <div style="display:inline-block;margin:10px 0;padding:5px 12px;border:1px solid var(--line);background:#fff0eb;font:bold 13px Arial,sans-serif;letter-spacing:1px;color:#ee4d2d">ShopeePay</div>
+        <div class="account" id="no-shopee">082113750886</div>
+        <p>a.n. EIGY DARMADI</p>
+        <button class="btn" onclick="copyText('082113750886')">Salin Nomor ShopeePay</button>
+      </div>
+    </section>
+        <button class="btn" onclick="copyText(elementId)">Salin Nomor Rekening</button>
       </div>
     </section>
 
@@ -115,7 +135,7 @@ function sendRSVP(e){
  const msg=`RSVP Undangan Eigy & Meta\nNama: ${document.getElementById("guest").value}\nKehadiran: ${document.getElementById("attendance").value}\nJumlah: ${document.getElementById("count").value}\nUcapan: ${document.getElementById("message").value}`;
  window.open(`https://wa.me/${WHATSAPP_ADMIN}?text=${encodeURIComponent(msg)}`,"_blank");
 }
-function copyAccount(){
+function copyText(elementId){
  const v=document.getElementById("rekening").textContent.trim();
  if(v.startsWith("[")){alert("Isi nomor rekening terlebih dahulu.");return}
  navigator.clipboard?.writeText(v).then(()=>alert("Nomor rekening disalin.")).catch(()=>alert("Nomor rekening: "+v));
